@@ -17,15 +17,22 @@ public class MaximalSquare221 {
                 if(matrix[i][j]=='0'){
                     int currentMaxSide = Math.min(rows-i,columns-j);
                     for(int k=1;k<currentMaxSide;k++){
+                        boolean flag = true;
                         if(matrix[i+k][j+k]=='0'){
                             break;
                         }
                         for(int m=0;m<k;m++) {
                             if (matrix[i + k][j + m]=='0'||matrix[i+m][j+k]=='0'){
+                                flag = false;
                                 break;
                             }
                         }
-                        maxSquareSide = Math.max(maxSquareSide,k+1);
+                        if(flag) {
+                            maxSquareSide = Math.max(maxSquareSide, k + 1);
+                        }
+                        else{
+                            break;
+                        }
                     }
 
                 }
