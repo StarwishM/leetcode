@@ -14,7 +14,8 @@ public class MaximalSquare221 {
 
         for(int i=0;i<rows;i++){
             for(int j=0;j<columns;j++){
-                if(matrix[i][j]=='0'){
+                if(matrix[i][j]=='1'){
+                    maxSquareSide = Math.max(maxSquareSide,1);
                     int currentMaxSide = Math.min(rows-i,columns-j);
                     for(int k=1;k<currentMaxSide;k++){
                         boolean flag = true;
